@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vote créneaux</title>
+    <meta name="description" content="Vote sur les créneaux disponibles (type Doodle)" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>
+          <h1>Vote sur les créneaux</h1>
+          <p class="muted">Un seul lien public. Entrez votre nom puis cochez vos disponibilités.</p>
+        </div>
+        <div class="badge">Accès libre</div>
+      </header>
+
+      <section class="card">
+        <label class="label" for="name">Nom Prénom</label>
+        <div class="row">
+          <input id="name" class="input" type="text" placeholder="ex: Marie Dupont" autocomplete="name" />
+          <button id="load" class="btn" type="button">Charger</button>
+          <button id="save" class="btn primary" type="button" disabled>Enregistrer</button>
+        </div>
+        <p id="status" class="status muted">Aucun vote chargé.</p>
+      </section>
+
+      <section class="card">
+        <div class="tableWrap">
+          <table class="table" aria-label="Créneaux">
+            <thead>
+              <tr>
+                <th>Créneau</th>
+                <th class="center">Disponible</th>
+              </tr>
+            </thead>
+            <tbody id="slotsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="summaryHeader">
+          <div>
+            <h2 class="h2">Récapitulatif des votes</h2>
+            <p id="bestSlot" class="muted">Meilleur créneau: —</p>
+          </div>
+          <button id="refresh" class="btn" type="button">Actualiser</button>
+        </div>
+        <div class="tableWrap">
+          <table class="table" aria-label="Récapitulatif">
+            <thead id="summaryHead"></thead>
+            <tbody id="summaryBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="footer muted">
+        Données enregistrées sur le serveur (fichier JSON). Pas d’authentification: n’importe qui avec le lien peut voter.
+      </footer>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
